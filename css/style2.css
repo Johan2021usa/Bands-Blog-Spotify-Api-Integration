@@ -1,0 +1,424 @@
+/*
+For this example we are going to show images from the local storage
+* inline-block: It allows us to adjust the size of html objects (width, height) horizontally
+* block: only allows us to organize blocks vertically and each one will have a with of 100%
+* <li>: allows us to add other tags inside, such as h2, p, etc.
+* In html using semantic tags is a good practice
+* box-sizing: allows us to limit the padding on an object regarding the width (30%) * 3elements with a marging x (20%) /940px parent
+* we can use border: 3px solid color;
+*/
+html{
+    font-family: "Lucida Sans", sans-serif;
+    color: #ffffff;
+}
+
+body{
+    background-color: #000000;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+strong{
+    font-weight: bold;
+}
+
+/*ANIMATIONS STACK*/
+@keyframes tittleAnimation{
+    from{
+        transform: translateY(-250px);
+    }to{
+        transform: translateY(1px);
+    }
+}
+@keyframes imageAnimation {
+    from{
+        transform: translateX(-450px);
+    }to{
+        transform: translateX(0px);
+    }
+}
+@keyframes spotyAnimation{
+    from{
+        transform: translateX(450px);
+    }to{
+        transform: translateX(0px);
+    }
+}
+.animationTittle{
+    /*Animation*/
+    animation-name: tittleAnimation;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+}
+.animationImage{
+    /*Animation*/
+    animation-name: imageAnimation;
+    animation-duration: 1s;
+    animation-delay: 0.12s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+}
+.animationSpoty{
+    /*Animation*/
+    animation-name: spotyAnimation;
+    animation-duration: 1s;
+    animation-delay: 0.12s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+}
+
+/* HEADER */
+header{
+    display: grid;
+    /* This align tags that are not for text*/
+        /*align-items: center;*/
+    /* This align text vertically (y)*/
+        /*place-content: center;*/
+    /* This align text horizontally (x)*/
+    text-align: center;
+    width: 100%;
+    height: 1000px;
+}
+.header-container{
+    position: relative;
+    display: flex;
+    /* Aligment x position*/
+    place-content: center;
+    /* Aligment y position*/
+    align-items: center;
+}
+#image-studio{
+    /*filters effects*/
+    position: absolute;
+    filter: opacity(58%);
+    clip: auto;
+    height: 100%;
+    width:100%;
+    /*clip: rect(50%,50%,50%,50%);*/
+    /*x y, */
+    /*clip-path: inset(20px 50px 10px 0 round 100px);*/
+}
+.tittle{
+    /* Display position*/
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    /* Aperence */
+    font-size: 70px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: -6px 6px 20px #000000;
+    
+}
+@media (max-width: 1083px) {
+    header{
+        display: grid;
+        /* This align tags that are not for text*/
+            /*align-items: center;*/
+        /* This align text vertically (y)*/
+            /*place-content: center;*/
+        /* This align text horizontally (x)*/;
+        text-align: center;
+        width: 100%;
+        height: 500px;
+    }
+    .header-container{
+        position: relative;
+        display: flex;
+        /* Aligment x position*/
+        place-content: center;
+        /* Aligment y position*/
+        align-items: center;
+    }
+    #image-studio{
+        /*filters effects*/
+        position: absolute;
+        filter: opacity(58%);
+        height: 100%;
+        width:100%;
+        border-radius: 15px;
+    }
+    .tittle{
+        width: 100%;
+        position: absolute;
+        font-size: bold;
+        font-size: 50px;
+        color: #FFFFFF;
+        text-shadow: -6px 6px 20px #000000;
+        margin: 0;
+    }
+}
+
+/*SECTION 1*/
+main{
+    width: 100%;
+}
+.section-band{
+    display: flex;
+    height:100%;
+    width:100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    /*Border*/
+    border: 1px solid #7a6844;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+/* #1 */
+.image-div{
+    display: flex;
+    width: 40%;
+    place-content: center;
+    align-items: center;
+        /* Testing 
+        background-color: rgba(47, 202, 230, 0.1);
+        border-style:solid;
+        border-width: 1px;
+        border-color:blue;*/
+}
+.image-div img{
+    height: 455px;
+    width: 455px;
+    /*
+        xPositon, yPosition, Boder opacity, Internal border size
+        for using shade we it's suggestable to start declaring the:
+        xPosition, yPosition, borderOpacity in 0em, 
+        and the internal borderSize in 0.1.
+        This helps us to understand the real size of the shade
+    */
+    box-shadow: -0.1em 0.1em 0.5em 0.1em #ffffff;
+}
+@media (max-width: 1083px){
+    .section-band{
+        display: block;
+        width: 100%;
+    }
+    .image-div{
+        width: 100%;
+        position: grid;
+        place-content: center;
+            /* Testing 
+            border-style:solid;
+            border-width: 1px;
+            border-color:blue;*/
+    }
+    .image-div img{
+        width: 250px;
+        height: 250px;
+        box-shadow: -0.1em 0.1em 0.5em 0.1em #ffffff;
+    }
+}
+
+/*2*/
+.spoty-list{
+    width: 60%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 40px;
+    box-sizing: border-box;
+        /* Testing
+        background-color: rgba(240,120,120, 0.1);
+        border-style:solid;
+        border-width: 1px;
+        border-color:blue;*/
+}
+.list{
+    display: flex;
+    place-content: center;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+        /*Border*/
+        border: 1px solid #ffffff;
+        border-radius: 15px;
+        box-sizing: border-box;
+        /* Testing 
+        border-style:solid;
+        border-width: 1px;
+        border-color:blue;
+        box-sizing: border-box;*/
+}
+.list ul{
+    display: grid;
+    width:80%;
+}
+.list li{
+    /*We use display block to take off points at the beginning of each list <li>*/
+    text-align: left;
+    display: block;
+    font-size: 18px;
+    padding-bottom: 4px;
+        /* Testing 
+        border-style:solid;
+        border-width: 1px;
+        border-color: red;
+        box-sizing: border-box;*/
+}
+@media (max-width: 1083px){
+    .spoty-list{
+        width: 100%;
+    }
+    .list{
+        display: grid;
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom:40px;
+    }
+    .list ul{
+        display: grid;
+        width: 80%;
+        margin: 0 auto;
+        padding: 0;
+            /* Testing 
+            border-style:solid;
+            border-width: 1px;
+            border-color: red;*/
+    }
+    .list li{
+        /*We use display block to take off points at the beginning of each list <li>*/
+        text-align: left;
+        display: block;
+        font-size: 18px;
+        padding-bottom: 4px;
+    }
+}
+
+/*3*/
+.spoty-div{
+    display: grid;
+    place-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+        /* Testing 
+        border-style:solid;
+        border-width: 1px;
+        border-color:blue;*/
+}
+.spoty-div iframe{
+    width: 600px;
+        /* TESTING
+        border-style:solid;
+        border-width: 1px;
+        border-color:red;*/
+}
+@media (max-width: 1083px){
+    .spoty-div{
+        display: grid;
+        place-content: center;
+            /* Testing 
+            border-style:solid;
+            border-width: 1px;
+            border-color:blue;*/
+    }
+    .spoty-div iframe{
+        width: 100%;
+            /* TESTING
+            border-style:solid;
+            border-width: 1px;
+            border-color:red;*/
+    }
+}
+
+/*Footer*/
+.footer-content{
+    background-color: #3B3900;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    place-content: center;
+}
+.footer-description, .footer-about-us{
+    padding: 5px;
+}
+
+.footer-tittle-left, .footer-tittle-right{
+    border-style:solid;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-top-width:0px;
+    border-bottom-width:2px;
+    border-color: #FBDA96;
+    height: fit-content;
+}
+.footer-tittle-left h2, .footer-tittle-right h2{
+    text-align: center;
+    font-weight: bold;
+    font-size:20px;
+    padding: 5px;
+}
+
+.footer-content-left, .footer-content-right{
+    /* y / x*/
+    padding: 10px 15px;
+}
+.footer-content-left p{
+    text-align: justify;
+} 
+.footer-content-right p{
+    text-align: center;
+    padding-bottom: 8px;
+}
+.footer-content-right a{
+    text-decoration: none;
+    color: inherit;
+}
+@media (max-width: 1083px) {
+    .footer-content{
+        background-color: #3B3900;
+        display: block;
+        place-content: center;
+    }
+    .footer-description, .footer-about-us{
+        padding: 10px;
+    }
+    
+    .footer-tittle-left, .footer-tittle-right{
+        border-style:solid;
+        border-left-width:0px;
+        border-right-width:0px;
+        border-top-width:0px;
+        border-bottom-width:2px;
+        border-color: #FBDA96;
+        height: fit-content;
+    }
+    .footer-tittle-left h2, .footer-tittle-right h2{
+        text-align: center;
+        font-weight: bold;
+        font-size:20px;
+        padding: 5px;
+    }
+    
+    .footer-content-left, .footer-content-right{
+        /* y / x*/
+        padding: 10px 15px;
+    }
+    .footer-content-left p{
+        text-align: justify;
+    } 
+    .footer-content-right p{
+        text-align: center;
+            
+    }
+    .footer-content-right a{
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+
+/*
+border-color: #FBDA96;
+*/
+/* TESTING
+    border-style:solid;
+    border-width: 1px;
+    border-color:blue;
+*/
+
+
