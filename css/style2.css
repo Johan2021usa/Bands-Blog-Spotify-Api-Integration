@@ -264,6 +264,7 @@ main{
 @media (max-width: 1083px){
     .spoty-list{
         width: 100%;
+        padding-right: 0px;
     }
     .list{
         display: grid;
@@ -406,7 +407,7 @@ main{
             
     }
     .footer-content-right a{
-        text-decoration: none;
+        text-decoration: none; /* Use this one to eliminate default styles of links */
         color: inherit;
     }
 }
