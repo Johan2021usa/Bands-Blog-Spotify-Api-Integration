@@ -1,15 +1,29 @@
-/*
-For this example we are going to show images from the local storage
-* inline-block: It allows us to adjust the size of html objects (width, height) horizontally
-* block: only allows us to organize blocks vertically and each one will have a with of 100%
-* <li>: allows us to add other tags inside, such as h2, p, etc.
-* In html using semantic tags is a good practice
-* box-sizing: allows us to limit the padding on an object regarding the width (30%) * 3elements with a marging x (20%) /940px parent
-* we can use border: 3px solid color;
-*/
+:root{
+    /* Colors */
+    --brown-derby-100: #f1e8d4;
+    --brown-derby-200: #e2d1a5;
+    --brown-derby-300: #d2b577;
+    --brown-derby-400: #c89e57;
+    --brown-derby-500: #bd8543;
+    --brown-derby-600: #a76938;
+    --brown-derby-700: #8b5032;
+    --brown-derby-800: #73422d;
+    --brown-derby-900: #5f3728;
+    --brown-derby-950: #472519;
+
+    /* Font-sizes */
+    --font-max: 3.8rem;
+    --font-huge: 3rem;
+    --font-mid: 2.75rem;
+    --font-sm: 2rem;
+    --font-extra-sm: 1.6rem; 
+    --font-min: 1.12rem;
+}
 html{
-    font-family: "Lucida Sans", sans-serif;
+    font-family: "Quicksand", serif;
     color: #ffffff;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 body{
@@ -21,30 +35,205 @@ body{
 strong{
     font-weight: bold;
 }
+header{
+    display: grid;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+}
+.header-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Aligment x position*/
+    justify-content: center;
+    /* Aligment y position*/
+    align-items: center;
+}
+#image-studio{
+    /*filters effects*/
+    position: absolute;
+    filter: 
+        blur(5px)
+        opacity(60%)    
+    ;
+    object-fit: cover;
+    height: 100%;
+    width:100%;
+}
+.tittle{
+    /* Display position*/
+    z-index: 1000;
+    width: 70%;
+    margin: 1rem 0;
+    /* Aperence */
+    font-size: var(--font-max);
+    font-weight: 400;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    text-shadow: -6px 6px 20px #000000;
+}
+.sub-title{
+    z-index: 1000;
+    font-size: var(--font-extra-sm);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 2rem;
+    row-gap: 5rem;
+}
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 70rem;
+    row-gap: 3.5rem;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+.card__title{
+    font-size: var(--font-sm);
+}
+.card__image-container{
+    display: flex;
+    max-width: 900px;
+    place-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    /* border: 1px solid green; */
+}
+.card__image{
+    width: 80%;
+    height: auto;
+    opacity: 0; /*The animation class adds opacity 1*/
+    border-radius: 25px;
+    /* xPositon, yPosition, Boder opacity, Internal border size */
+    box-shadow: 0rem 0.5rem 5rem 0.05rem var(--brown-derby-800);
+}
+.card__info-container{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+    box-sizing: border-box;
+    /* border: 1px solid yellow; */
+}
+.card__info-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30rem;
+    padding: 0 1rem;
+    line-height: 1.5rem;
+    /* border: 1px solid blue; */
+}
+.card__info-list li{
+    text-align: left;
+    display: block;
+    font-size: var(--font-min);
+    padding-bottom: 4px;
+}
+.spoty-div{
+    display: flex;
+    justify-content: center;
+    width: 23rem;
+    opacity: 0;
+    /*The animation class adds opacity 1*/
+    /* border: 1px solid red; */
+}
+.spoty-div iframe{
+    padding: 0;
+    width: 95%;
+}
+
+/*Footer*/
+.footer-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 1rem;
+    row-gap: 1rem;
+    gap: 1rem;
+    background-color: var(--brown-derby-950);
+}
+.footer-description, .footer-about-us{
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+}
+.footer-tittle-left, .footer-tittle-right{
+    border-style:solid;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-top-width:0px;
+    border-bottom-width:2px;
+    border-color: var(--brown-derby-400);
+    height: fit-content;
+}
+.footer-tittle-left h2, .footer-tittle-right h2{
+    text-align: center;
+    font-weight: bold;
+    font-size: var(--font-extra-sm);
+    padding: 5px;
+}
+
+.footer-content-left, .footer-content-right{
+    /* y / x*/
+    padding: 10px 15px;
+    line-height: 1.5rem;
+}
+.footer-content-left p{
+    text-align: justify;
+    font-size: var(--font-min);
+} 
+.footer-content-right p{
+    text-align: center;
+    padding-bottom: 8px;
+    font-size: var(--font-min);
+}
+.footer-content-right a{
+    text-decoration: none;
+    color: inherit;
+    font-size: var(--font-min);
+}
 
 /*ANIMATIONS STACK*/
 @keyframes tittleAnimation{
     from{
         transform: translateY(-250px);
+        opacity: 0;
     }to{
-        transform: translateY(1px);
+        transform: translateY(0px);
+        opacity: 1;
     }
 }
 @keyframes imageAnimation {
-    from{
-        transform: translateX(-450px);
-    }to{
-        transform: translateX(0px);
-    }
+    0% {
+        -webkit-transform: translateY(250px);
+                transform: translateY(250px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+        opacity: 1;
+      }
 }
 @keyframes spotyAnimation{
-    from{
+    0%{
         transform: translateX(450px);
-    }to{
+        opacity: 0;
+    }
+    100%{
         transform: translateX(0px);
+        opacity: 1;
     }
 }
-.animationTittle{
+.animationTitle{
     /*Animation*/
     animation-name: tittleAnimation;
     animation-duration: 1s;
@@ -55,371 +244,14 @@ strong{
 }
 .animationImage{
     /*Animation*/
-    animation-name: imageAnimation;
-    animation-duration: 1s;
-    animation-delay: 0.12s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-fill-mode: none;
+    animation: imageAnimation 900ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both;  
 }
 .animationSpoty{
     /*Animation*/
-    animation-name: spotyAnimation;
-    animation-duration: 1s;
-    animation-delay: 0.12s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-fill-mode: none;
-}
-
-/* HEADER */
-header{
-    display: grid;
-    /* This align tags that are not for text*/
-        /*align-items: center;*/
-    /* This align text vertically (y)*/
-        /*place-content: center;*/
-    /* This align text horizontally (x)*/
-    text-align: center;
-    width: 100%;
-    height: 1000px;
-}
-.header-container{
-    position: relative;
+    animation: spotyAnimation 800ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     display: flex;
-    /* Aligment x position*/
-    place-content: center;
-    /* Aligment y position*/
-    align-items: center;
+    justify-content: center;
+    width: 23rem;
 }
-#image-studio{
-    /*filters effects*/
-    position: absolute;
-    filter: opacity(58%);
-    clip: auto;
-    height: 100%;
-    width:100%;
-    /*clip: rect(50%,50%,50%,50%);*/
-    /*x y, */
-    /*clip-path: inset(20px 50px 10px 0 round 100px);*/
-}
-.tittle{
-    /* Display position*/
-    width: 100%;
-    position: absolute;
-    margin: 0;
-    /* Aperence */
-    font-size: 70px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    text-shadow: -6px 6px 20px #000000;
-    
-}
-@media (max-width: 1083px) {
-    header{
-        display: grid;
-        /* This align tags that are not for text*/
-            /*align-items: center;*/
-        /* This align text vertically (y)*/
-            /*place-content: center;*/
-        /* This align text horizontally (x)*/;
-        text-align: center;
-        width: 100%;
-        height: 500px;
-    }
-    .header-container{
-        position: relative;
-        display: flex;
-        /* Aligment x position*/
-        place-content: center;
-        /* Aligment y position*/
-        align-items: center;
-    }
-    #image-studio{
-        /*filters effects*/
-        position: absolute;
-        filter: opacity(58%);
-        height: 100%;
-        width:100%;
-        border-radius: 15px;
-    }
-    .tittle{
-        width: 100%;
-        position: absolute;
-        font-size: bold;
-        font-size: 50px;
-        color: #FFFFFF;
-        text-shadow: -6px 6px 20px #000000;
-        margin: 0;
-    }
-}
-
-/*SECTION 1*/
-main{
-    width: 100%;
-}
-.section-band{
-    display: flex;
-    height:100%;
-    width:100%;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    /*Border*/
-    border: 1px solid #7a6844;
-    border-radius: 15px;
-    box-sizing: border-box;
-}
-
-/* #1 */
-.image-div{
-    display: flex;
-    width: 40%;
-    place-content: center;
-    align-items: center;
-        /* Testing 
-        background-color: rgba(47, 202, 230, 0.1);
-        border-style:solid;
-        border-width: 1px;
-        border-color:blue;*/
-}
-.image-div img{
-    height: 455px;
-    width: 455px;
-    /*
-        xPositon, yPosition, Boder opacity, Internal border size
-        for using shade we it's suggestable to start declaring the:
-        xPosition, yPosition, borderOpacity in 0em, 
-        and the internal borderSize in 0.1.
-        This helps us to understand the real size of the shade
-    */
-    box-shadow: -0.1em 0.1em 0.5em 0.1em #ffffff;
-}
-@media (max-width: 1083px){
-    .section-band{
-        display: block;
-        width: 100%;
-    }
-    .image-div{
-        width: 100%;
-        position: grid;
-        place-content: center;
-            /* Testing 
-            border-style:solid;
-            border-width: 1px;
-            border-color:blue;*/
-    }
-    .image-div img{
-        width: 250px;
-        height: 250px;
-        box-shadow: -0.1em 0.1em 0.5em 0.1em #ffffff;
-    }
-}
-
-/*2*/
-.spoty-list{
-    width: 60%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 40px;
-    box-sizing: border-box;
-        /* Testing
-        background-color: rgba(240,120,120, 0.1);
-        border-style:solid;
-        border-width: 1px;
-        border-color:blue;*/
-}
-.list{
-    display: flex;
-    place-content: center;
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-        /*Border*/
-        border: 1px solid #ffffff;
-        border-radius: 15px;
-        box-sizing: border-box;
-        /* Testing 
-        border-style:solid;
-        border-width: 1px;
-        border-color:blue;
-        box-sizing: border-box;*/
-}
-.list ul{
-    display: grid;
-    width:80%;
-}
-.list li{
-    /*We use display block to take off points at the beginning of each list <li>*/
-    text-align: left;
-    display: block;
-    font-size: 18px;
-    padding-bottom: 4px;
-        /* Testing 
-        border-style:solid;
-        border-width: 1px;
-        border-color: red;
-        box-sizing: border-box;*/
-}
-@media (max-width: 1083px){
-    .spoty-list{
-        width: 100%;
-        padding-right: 0px;
-    }
-    .list{
-        display: grid;
-        width: 100%;
-        margin-top: 40px;
-        margin-bottom:40px;
-    }
-    .list ul{
-        display: grid;
-        width: 80%;
-        margin: 0 auto;
-        padding: 0;
-            /* Testing 
-            border-style:solid;
-            border-width: 1px;
-            border-color: red;*/
-    }
-    .list li{
-        /*We use display block to take off points at the beginning of each list <li>*/
-        text-align: left;
-        display: block;
-        font-size: 18px;
-        padding-bottom: 4px;
-    }
-}
-
-/*3*/
-.spoty-div{
-    display: grid;
-    place-content: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-        /* Testing 
-        border-style:solid;
-        border-width: 1px;
-        border-color:blue;*/
-}
-.spoty-div iframe{
-    width: 600px;
-        /* TESTING
-        border-style:solid;
-        border-width: 1px;
-        border-color:red;*/
-}
-@media (max-width: 1083px){
-    .spoty-div{
-        display: grid;
-        place-content: center;
-            /* Testing 
-            border-style:solid;
-            border-width: 1px;
-            border-color:blue;*/
-    }
-    .spoty-div iframe{
-        width: 100%;
-            /* TESTING
-            border-style:solid;
-            border-width: 1px;
-            border-color:red;*/
-    }
-}
-
-/*Footer*/
-.footer-content{
-    background-color: #3B3900;
-    display: grid;
-    grid-template-columns: 40% 40%;
-    place-content: center;
-}
-.footer-description, .footer-about-us{
-    padding: 5px;
-}
-
-.footer-tittle-left, .footer-tittle-right{
-    border-style:solid;
-    border-left-width:0px;
-    border-right-width:0px;
-    border-top-width:0px;
-    border-bottom-width:2px;
-    border-color: #FBDA96;
-    height: fit-content;
-}
-.footer-tittle-left h2, .footer-tittle-right h2{
-    text-align: center;
-    font-weight: bold;
-    font-size:20px;
-    padding: 5px;
-}
-
-.footer-content-left, .footer-content-right{
-    /* y / x*/
-    padding: 10px 15px;
-}
-.footer-content-left p{
-    text-align: justify;
-} 
-.footer-content-right p{
-    text-align: center;
-    padding-bottom: 8px;
-}
-.footer-content-right a{
-    text-decoration: none;
-    color: inherit;
-}
-@media (max-width: 1083px) {
-    .footer-content{
-        background-color: #3B3900;
-        display: block;
-        place-content: center;
-    }
-    .footer-description, .footer-about-us{
-        padding: 10px;
-    }
-    
-    .footer-tittle-left, .footer-tittle-right{
-        border-style:solid;
-        border-left-width:0px;
-        border-right-width:0px;
-        border-top-width:0px;
-        border-bottom-width:2px;
-        border-color: #FBDA96;
-        height: fit-content;
-    }
-    .footer-tittle-left h2, .footer-tittle-right h2{
-        text-align: center;
-        font-weight: bold;
-        font-size:20px;
-        padding: 5px;
-    }
-    
-    .footer-content-left, .footer-content-right{
-        /* y / x*/
-        padding: 10px 15px;
-    }
-    .footer-content-left p{
-        text-align: justify;
-    } 
-    .footer-content-right p{
-        text-align: center;
-            
-    }
-    .footer-content-right a{
-        text-decoration: none; /* Use this one to eliminate default styles of links */
-        color: inherit;
-    }
-}
-
-
-/*
-border-color: #FBDA96;
-*/
-/* TESTING
-    border-style:solid;
-    border-width: 1px;
-    border-color:blue;
-*/
 
 
